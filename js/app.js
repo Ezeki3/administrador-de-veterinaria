@@ -11,9 +11,19 @@ const contenedorCitas = document.querySelector('#citas');
 
 eventListeners();
 function eventListeners() {
-  mascotaInput.addEventListener('input', datosCita);
+  mascotaInput.addEventListener('change', datosCita);
+}
+
+const citaObj = {
+  mascota: '',
+  propietario: '',
+  telefono: '',
+  fecha: '',
+  hora: '',
+  sintomas: ''
 }
 
 function datosCita(e) {
-  console.log(e.target.value);
+  citaObj[e.target.name] = e.target.value
+  console.log(citaObj);
 }
