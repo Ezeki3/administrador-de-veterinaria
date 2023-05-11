@@ -8,4 +8,12 @@ const sintomasInput = document.querySelector('#sintomas');
 const formulario = document.querySelector('#nueva-cita');
 
 const contenedorCitas = document.querySelector('#citas');
-console.log(formulario);
+
+eventListeners();
+function eventListeners() {
+  mascotaInput.addEventListener('input', datosCita);
+}
+
+function datosCita(e) {
+  console.log(e.target.value);
+}
