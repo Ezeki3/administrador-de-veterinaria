@@ -15,7 +15,7 @@ class Citas {
     this.citas = [];
   }
 
-  agregarCita(cita) {
+  agregarCita(citas) {
     this.citas = [...this.citas, citas];
     console.log(this.citas)
   }
