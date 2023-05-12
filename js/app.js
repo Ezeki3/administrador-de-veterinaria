@@ -87,5 +87,11 @@ function nuevaCita(e) {
   if (mascota === '' || propietario === '' || telefono === '' || fecha === '', hora === '' || sintomas === '') {
     ui.imprimirAlerta('Todos los campos son obligatorios', 'error')
     return
+  } else {
+    ui.imprimirAlerta('Cita hecha', 'exito')
+
   }
+
+  // Creando una nueva cita
+
 }
