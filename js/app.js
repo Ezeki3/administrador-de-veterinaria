@@ -21,6 +21,17 @@ function eventListeners() {
   sintomasInput.addEventListener('change', datosCita);
 }
 
+class Citas {
+
+}
+
+class UI {
+
+}
+
+const ui = new UI();
+const administrarCitas = new Citas();
+
 // Objeto con la informacion de la cita
 const citaObj = {
   // name para relacionarlo con los inputs de html
