@@ -10,6 +10,19 @@ const sintomasInput = document.querySelector('#sintomas');
 const formulario = document.querySelector('#nueva-cita');
 const contenedorCitas = document.querySelector('#citas');
 
+class Citas {
+  constructor() {
+    this.citas = [];
+  }
+}
+
+class UI {
+
+}
+
+const ui = new UI();
+const administrarCitas = new Citas();
+
 // Registrar eventos
 eventListeners();
 function eventListeners() {
@@ -19,18 +32,9 @@ function eventListeners() {
   fechaInput.addEventListener('change', datosCita);
   horaInput.addEventListener('change', datosCita);
   sintomasInput.addEventListener('change', datosCita);
+
+  formulario.addEventListener('submit', nuevaCita);
 }
-
-class Citas {
-
-}
-
-class UI {
-
-}
-
-const ui = new UI();
-const administrarCitas = new Citas();
 
 // Objeto con la informacion de la cita
 const citaObj = {
@@ -48,4 +52,18 @@ function datosCita(e) {
   // name para relacionarlo con los inputs de html
   citaObj[e.target.name] = e.target.value
   console.log(citaObj);
+}
+
+// Valida y agrega una nueva cita a la clase de citas
+function nuevaCita(e) {
+  e.preventDefault();
+
+  // Extraer la informacion del objeto de cita
+  const { mascota, propietario, telefono, fecha, hora, sintomas } = citaObj;
+
+  // Validacion
+  if (mascota === '' || propietario === '' || telefono === '' || fecha === '', hora === '' || sintomas === '') {
+    console.log('todos los campos son obligatorios');
+    return
+  }
 }
