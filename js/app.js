@@ -31,6 +31,14 @@ class UI {
 
     // Mensaje de error
     divMensaje.textContent = mensaje;
+
+    // Agregar al DOM
+    document.querySelector('#contenido').insertBefore(divMensaje, document.querySelector('.agregar-cita'));
+
+    // Quitar la alerta despues de 3 segundos
+    setTimeout(() => {
+      divMensaje.remove();
+    }, 3000);
   }
 }
 
