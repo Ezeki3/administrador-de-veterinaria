@@ -87,11 +87,14 @@ function nuevaCita(e) {
   if (mascota === '' || propietario === '' || telefono === '' || fecha === '', hora === '' || sintomas === '') {
     ui.imprimirAlerta('Todos los campos son obligatorios', 'error')
     return
-  } else {
-    ui.imprimirAlerta('Cita hecha', 'exito')
+  } //else {
+  // ui.imprimirAlerta('Cita hecha', 'exito')
+  //}
 
-  }
+  // Generar un id unico
+  citaObj.id = Date.now();
 
   // Creando una nueva cita
+  console.log(citaObj);
 
 }
