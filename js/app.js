@@ -14,6 +14,11 @@ class Citas {
   constructor() {
     this.citas = [];
   }
+
+  agregarCita(cita) {
+    this.citas = [...this.citas, citas];
+    console.log(this.citas);
+  }
 }
 
 class UI {
@@ -73,7 +78,6 @@ const citaObj = {
 function datosCita(e) {
   // name para relacionarlo con los inputs de html
   citaObj[e.target.name] = e.target.value
-  console.log(citaObj);
 }
 
 // Valida y agrega una nueva cita a la clase de citas
@@ -95,6 +99,6 @@ function nuevaCita(e) {
   citaObj.id = Date.now();
 
   // Creando una nueva cita
-  console.log(citaObj);
+  administrarCitas.agregarCita(citaObj);
 
 }
