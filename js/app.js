@@ -17,6 +17,7 @@ class Citas {
 
   agregarCita(cita) {
     this.citas = [...this.citas, citas];
+    console.log(this.citas)
   }
 }
 
@@ -89,16 +90,17 @@ function nuevaCita(e) {
   // Validacion
   if (mascota === '' || propietario === '' || telefono === '' || fecha === '', hora === '' || sintomas === '') {
     ui.imprimirAlerta('Todos los campos son obligatorios', 'error')
-    return
+    return;
   } //else {
   // ui.imprimirAlerta('Cita hecha', 'exito')
   //}
 
   // Generar un id unico
   citaObj.id = Date.now();
-  console.log(citaObj)
 
   // Creando una nueva cita
-  administrarCitas.agregarCita(citaObj);
+  administrarCitas.agregarCita({ ...citaObj });//agregamos una copia de citaObj
 
+  // Reinicia el formulario
+  formulario.reset();
 }
