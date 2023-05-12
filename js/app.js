@@ -17,7 +17,6 @@ class Citas {
 
   agregarCita(cita) {
     this.citas = [...this.citas, citas];
-    console.log(this.citas);
   }
 }
 
@@ -97,6 +96,7 @@ function nuevaCita(e) {
 
   // Generar un id unico
   citaObj.id = Date.now();
+  console.log(citaObj)
 
   // Creando una nueva cita
   administrarCitas.agregarCita(citaObj);
