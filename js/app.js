@@ -101,6 +101,21 @@ function nuevaCita(e) {
   // Creando una nueva cita
   administrarCitas.agregarCita({ ...citaObj });//agregamos una copia de citaObj
 
+  // Mandamos a llamar el reinicio del objeto
+  reiniciarObjeto();
+
   // Reinicia el formulario
   formulario.reset();
+
+  // Mostrar el HTML de las citas
+}
+
+// Despues que se han cargado los datos volvemos a reiniciar el objeto
+function reiniciarObjeto() {
+  citaObj.mascota = '';
+  citaObj.propietario = '';
+  citaObj.telefono = '';
+  citaObj.fecha = '';
+  citaObj.hora = '';
+  citaObj.sintomas = '';
 }
