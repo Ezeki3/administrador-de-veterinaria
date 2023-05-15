@@ -48,7 +48,7 @@ class UI {
 
   imprimirCitas({ citas }) {//hacemos destructuring de citas
 
-    citas.forEach((cita) => {
+    citas.forEach(cita => {
       const { mascota, propietario, telefono, fecha, hora, sintomas, id } = citas;
 
       const divCita = document.createElement('div');
@@ -59,9 +59,19 @@ class UI {
       const mascotaParrafo = document.createElement('h2');
       mascotaParrafo.classList.add('card-title', 'font-weight-bolder');
       mascotaParrafo.textContent = mascota;
-      console.log(cita);
-    })
 
+      const propietarioParrafo = document.createElement('p');
+      propietarioParrafo.innerHTML = `
+        <span class="font-weight-bolder">Propietario: </span>${propietario}
+      `
+
+      // Agregar los parrafos al divCita
+      divCita.appendChild(mascotaParrafo);
+      divCita.appendChild(propietarioParrafo);
+
+      // Agregar las citas al HTML
+      contenedorCitas.appendChild(divCita);
+    })
   }
 
 }
