@@ -15,8 +15,8 @@ class Citas {
     this.citas = [];
   }
 
-  agregarCita(citas) {
-    this.citas = [...this.citas, citas];
+  agregarCita(cita) {
+    this.citas = [...this.citas, cita];
     console.log(this.citas)
   }
 }
@@ -137,7 +137,7 @@ function nuevaCita(e) {
   formulario.reset();
 
   // Mostrar el HTML de las citas
-  ui.imprimirCitas(administrarCitas);
+  ui.imprimirCitas({ citas: administrarCitas.citas })
 }
 
 // Despues que se han cargado los datos volvemos a reiniciar el objeto
