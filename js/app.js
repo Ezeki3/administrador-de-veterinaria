@@ -47,8 +47,23 @@ class UI {
   }
 
   imprimirCitas({ citas }) {//hacemos destructuring de citas
-    console.log(citas);
+
+    citas.forEach((cita) => {
+      const { mascota, propietario, telefono, fecha, hora, sintomas, id } = citas;
+
+      const divCita = document.createElement('div');
+      divCita.classList.add('cita', 'p-3');
+      divCita.dataset.id = id;
+
+      // Scripting de los elementos de la cita
+      const mascotaParrafo = document.createElement('h2');
+      mascotaParrafo.classList.add('card-title', 'font-weight-bolder');
+      mascotaParrafo.textContent = mascota;
+      console.log(cita);
+    })
+
   }
+
 }
 
 const ui = new UI();
