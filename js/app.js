@@ -45,6 +45,10 @@ class UI {
       divMensaje.remove();
     }, 3000);
   }
+
+  imprimirCitas({ citas }) {//hacemos destructuring de citas
+    console.log(citas);
+  }
 }
 
 const ui = new UI();
@@ -108,6 +112,7 @@ function nuevaCita(e) {
   formulario.reset();
 
   // Mostrar el HTML de las citas
+  ui.imprimirCitas(administrarCitas);
 }
 
 // Despues que se han cargado los datos volvemos a reiniciar el objeto
