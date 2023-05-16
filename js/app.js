@@ -181,8 +181,15 @@ function nuevaCita(e) {
   }
 
   if (editando) {
-    console.log('modo edicion');
+    ui.imprimirAlerta('Editado correctamente');
+
+    formulario.querySelector('button[type="submit"]').textContent = 'Crear cita';
+
+    // Quitar modo edicion
+    editando = false;
+
   } else {
+
     // Generar un id unico
     citaObj.id = Date.now();
 
