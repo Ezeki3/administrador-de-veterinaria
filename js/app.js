@@ -47,7 +47,8 @@ class UI {
   }
 
   imprimirCitas({ citas }) {//hacemos destructuring de citas
-    console.log(citas);
+
+    this.limpiarHTML();
 
     citas.forEach(cita => {
       const { mascota, propietario, telefono, fecha, hora, sintomas, id } = cita;
@@ -97,6 +98,12 @@ class UI {
       // Agregar las citas al HTML
       contenedorCitas.appendChild(divCita);
     })
+  }
+
+  limpiarHTML() {
+    while (contenedorCitas.firstChild) {
+      contenedorCitas.removeChild(contenedorCitas.firstChild)
+    }
   }
 
 }
