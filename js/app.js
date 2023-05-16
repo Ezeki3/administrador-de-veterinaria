@@ -87,6 +87,14 @@ class UI {
         <span class="font-weight-bolder">Sintomas: </span>${sintomas}
       `;
 
+      // Boton para eliminar esta cita
+      const btnEliminar = document.createElement('button');
+      btnEliminar.classList.add('btn', 'btn-danger', 'mr-2');
+      btnEliminar.innerHTML = `Eliminar <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+        stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+       </svg>
+      `;
+
       // Agregar los parrafos al divCita
       divCita.appendChild(mascotaParrafo);
       divCita.appendChild(propietarioParrafo);
@@ -94,6 +102,7 @@ class UI {
       divCita.appendChild(fechaParrafo);
       divCita.appendChild(horaParrafo);
       divCita.appendChild(sintomasParrafo);
+      divCita.appendChild(btnEliminar);
 
       // Agregar las citas al HTML
       contenedorCitas.appendChild(divCita);
