@@ -217,3 +217,8 @@ function eliminarCita(id) {
   // Refrescar las citas
   ui.imprimirCitas(administrarCitas);
 }
+
+// Carga los datos y el modo de edicion
+function cargarEdicion(cita) {
+  console.log(cita);
+}
