@@ -220,5 +220,13 @@ function eliminarCita(id) {
 
 // Carga los datos y el modo de edicion
 function cargarEdicion(cita) {
-  console.log(cita);
+  const { mascota, propietario, telefono, fecha, hora, sintomas } = cita;
+
+  // Lenar los inputs con la info de las variables que viene de cita
+  mascotaInput.value = mascota;
+  propietarioInput.value = propietario;
+  telefonoInput.value = telefono;
+  fechaInput.value = fecha;
+  horaInput.value = hora;
+  sintomasInput.value = sintomas;
 }
