@@ -178,15 +178,20 @@ function nuevaCita(e) {
   if (mascota === '' || propietario === '' || telefono === '' || fecha === '', hora === '' || sintomas === '') {
     ui.imprimirAlerta('Todos los campos son obligatorios', 'error')
     return;
-  } //else {
-  // ui.imprimirAlerta('Cita hecha', 'exito')
-  //}
+  }
 
-  // Generar un id unico
-  citaObj.id = Date.now();
+  if (editando) {
+    console.log('modo edicion');
+  } else {
+    // Generar un id unico
+    citaObj.id = Date.now();
 
-  // Creando una nueva cita
-  administrarCitas.agregarCita({ ...citaObj });//agregamos una copia de citaObj
+    // Creando una nueva cita
+    administrarCitas.agregarCita({ ...citaObj });//agregamos una copia de citaObj
+
+    // Mensaje de agregado correctamente
+    ui.imprimirAlerta('La cita se agrego correctamente');
+  }
 
   // Mandamos a llamar el reinicio del objeto
   reiniciarObjeto();
