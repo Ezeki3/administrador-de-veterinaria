@@ -47,9 +47,10 @@ class UI {
   }
 
   imprimirCitas({ citas }) {//hacemos destructuring de citas
+    console.log(citas);
 
     citas.forEach(cita => {
-      const { mascota, propietario, telefono, fecha, hora, sintomas, id } = citas;
+      const { mascota, propietario, telefono, fecha, hora, sintomas, id } = cita;
 
       const divCita = document.createElement('div');
       divCita.classList.add('cita', 'p-3');
@@ -137,7 +138,7 @@ function nuevaCita(e) {
   formulario.reset();
 
   // Mostrar el HTML de las citas
-  ui.imprimirCitas({ citas: administrarCitas.citas })
+  ui.imprimirCitas(administrarCitas)
 }
 
 // Despues que se han cargado los datos volvemos a reiniciar el objeto
