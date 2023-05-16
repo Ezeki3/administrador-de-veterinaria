@@ -10,6 +10,7 @@ const sintomasInput = document.querySelector('#sintomas');
 const formulario = document.querySelector('#nueva-cita');
 const contenedorCitas = document.querySelector('#citas');
 
+let editando;
 class Citas {
   constructor() {
     this.citas = [];
@@ -220,7 +221,7 @@ function eliminarCita(id) {
 
 // Carga los datos y el modo de edicion
 function cargarEdicion(cita) {
-  const { mascota, propietario, telefono, fecha, hora, sintomas } = cita;
+  const { mascota, propietario, telefono, fecha, hora, sintomas, id } = cita;
 
   // Lenar los inputs con la info de las variables que viene de cita
   mascotaInput.value = mascota;
@@ -229,4 +230,19 @@ function cargarEdicion(cita) {
   fechaInput.value = fecha;
   horaInput.value = hora;
   sintomasInput.value = sintomas;
+
+  // Llenar el objeto
+  citaObj.mascota = mascota;
+  citaObj.propietario = propietario;
+  citaObj.telefono = telefono;
+  citaObj.fecha = fecha;
+  citaObj.hora = hora;
+  citaObj.sintomas = sintomas;
+  citaObj.id = id;
+
+
+  // Cambiar el texto del boton
+  formulario.querySelector('button[type="submit"]').textContent = 'Guardar cambios';
+
+  editando = true;
 }
