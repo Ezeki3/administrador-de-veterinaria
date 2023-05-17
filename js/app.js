@@ -27,7 +27,7 @@ class Citas {
   }
 
   editarCita(cita) {
-
+    this.citas = this.citas.map(cita => cita.id)
   }
 }
 
