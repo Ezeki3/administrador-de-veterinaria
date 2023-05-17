@@ -1,2 +1,2 @@
 # administrador-de-veterinaria
-Aplicación para agendar citas con el consultorio de veterinarios :)
+Aplicación en la que podras agendar citas con tu consultorio veterinario, ademas podras editarlas y actualizarlas 
