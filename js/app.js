@@ -1,3 +1,5 @@
+let DB;
+
 // Campos del formulario
 const mascotaInput = document.querySelector('#mascota');
 const propietarioInput = document.querySelector('#propietario');
@@ -11,6 +13,12 @@ const formulario = document.querySelector('#nueva-cita');
 const contenedorCitas = document.querySelector('#citas');
 
 let editando;
+
+window.onload = () => {
+  eventListeners();
+
+  crearDB();
+}
 class Citas {
   constructor() {
     this.citas = [];
@@ -141,8 +149,10 @@ class UI {
 const ui = new UI();
 const administrarCitas = new Citas();
 
+
+
 // Registrar eventos
-eventListeners();
+
 function eventListeners() {
   mascotaInput.addEventListener('change', datosCita);
   propietarioInput.addEventListener('change', datosCita);
@@ -265,4 +275,14 @@ function cargarEdicion(cita) {
   formulario.querySelector('button[type="submit"]').textContent = 'Guardar cambios';
 
   editando = true;
+}
+
+function crearDB() {
+  // Crear la base de datos version 1.0
+  const crearDB = window.indexedDB.open('citas', 1);
+
+  // si hay un error
+  crearDB.onerror = function () {
+    console.log('hubo un error');
+  }
 }
