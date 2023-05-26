@@ -214,8 +214,23 @@ function nuevaCita(e) {
     // Creando una nueva cita
     administrarCitas.agregarCita({ ...citaObj });//agregamos una copia de citaObj
 
-    // Mensaje de agregado correctamente
-    ui.imprimirAlerta('La cita se agrego correctamente');
+    // Insertar Registro en INDEXDB
+    const transaction = DB.transaction(['citas'], 'readwrite');
+
+    // Habilitar el objectStore
+    const objectStore = transaction.objectStore('citas');
+
+    // Insertar en la  DB
+    objectStore.add(citaObj);
+
+    transaction.oncomplete = function () {
+      console.log('cita agregada');
+
+      // Mensaje de agregado correctamente
+      ui.imprimirAlerta('La cita se agrego correctamente');
+
+    }
+
   }
 
   // Mandamos a llamar el reinicio del objeto
