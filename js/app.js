@@ -285,4 +285,34 @@ function crearDB() {
   crearDB.onerror = function () {
     console.log('hubo un error');
   }
+
+  // si todo sale bien
+  crearDB.onsuccess = function () {
+    console.log('bd creada');
+
+    DB = crearDB.result;
+
+    console.log(DB);
+  }
+
+  // Definir el schema
+  crearDB.onupgradeneeded = function (e) {
+    const db = e.target.result;
+
+    const objectStore = db.createObjectStore('citas', {
+      keyPath: 'id',
+      autoIncrement: true
+    })
+
+    // Definimos las columnas
+    objectStore.createIndex('mascota', 'mascota', { unique: false });
+    objectStore.createIndex('propietario', 'propietario', { unique: false });
+    objectStore.createIndex('telefono', 'telefono', { unique: false });
+    objectStore.createIndex('fecha', 'fecha', { unique: false });
+    objectStore.createIndex('hora', 'hora', { unique: false });
+    objectStore.createIndex('sintomas', 'sintomas', { unique: false });
+    objectStore.createIndex('id', 'id', { unique: true });
+
+    console.log('db creada y lista');
+  }
 }
