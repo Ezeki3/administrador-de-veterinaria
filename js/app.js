@@ -12,6 +12,9 @@ const sintomasInput = document.querySelector('#sintomas');
 const formulario = document.querySelector('#nueva-cita');
 const contenedorCitas = document.querySelector('#citas');
 
+// Heading
+const heading = document.querySelector('#administra');
+
 let editando;
 
 window.onload = () => {
@@ -75,6 +78,14 @@ class UI {
     }
   }
 
+  textoHeading(citas) {
+    if (citas.length > 0) {
+      heading.textContent = 'Administra tus Citas '
+    } else {
+      heading.textContent = 'No hay Citas, comienza creando una'
+    }
+  }
+
   limpiarHTML() {
     while (contenedorCitas.firstChild) {
       contenedorCitas.removeChild(contenedorCitas.firstChild)
@@ -85,7 +96,6 @@ class UI {
 
 const ui = new UI();
 const administrarCitas = new Citas();
-
 
 
 // Registrar eventos
@@ -244,7 +254,8 @@ function crearDB() {
 
     DB = crearDB.result;
 
-    console.log(DB);
+    // MOstrar citas al cargar (Pero indexdb ya esta listo)
+    ui.imprimirCitas();
   }
 
   // Definir el schema
