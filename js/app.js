@@ -63,7 +63,7 @@ class UI {
     }, 3000);
   }
 
-  imprimirCitas({ citas }) {//hacemos destructuring de citas
+  imprimirCitas() {//hacemos destructuring de citas
 
     this.limpiarHTML();
 
@@ -240,7 +240,7 @@ function nuevaCita(e) {
   formulario.reset();
 
   // Mostrar el HTML de las citas
-  ui.imprimirCitas(administrarCitas)
+  ui.imprimirCitas()
 }
 
 // Despues que se han cargado los datos volvemos a reiniciar el objeto
@@ -261,7 +261,7 @@ function eliminarCita(id) {
   ui.imprimirAlerta('La cita se elimino correctamente');
 
   // Refrescar las citas
-  ui.imprimirCitas(administrarCitas);
+  ui.imprimirCitas();
 }
 
 // Carga los datos y el modo de edicion
