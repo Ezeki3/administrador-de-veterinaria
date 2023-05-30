@@ -220,7 +220,7 @@ function nuevaCita(e) {
     objectStore.put(citaObj);
 
     transaction.oncomplete = () => {
-      ui.imprimirAlerta('Guardado correctamente')
+      // ui.imprimirAlerta('Guardado correctamente')
       // Regresar el texto del boton a su estado original
       formulario.querySelector('button[type="submit"]').textContent = 'Crear cita';
 
