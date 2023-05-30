@@ -281,13 +281,26 @@ function reiniciarObjeto() {
 
 function eliminarCita(id) {
   // Eliminar la cita
-  administrarCitas.eliminarCita(id);
+  // administrarCitas.eliminarCita(id);
 
   // Mostrar un mensaje
-  ui.imprimirAlerta('La cita se elimino correctamente');
+  // ui.imprimirAlerta('La cita se elimino correctamente');
 
-  // Refrescar las citas
-  ui.imprimirCitas();
+  // Eliminar Registro en INDEXDB
+  const transaction = DB.transaction(['citas'], 'readwrite');
+  const objectStore = transaction.objectStore('citas');
+
+  objectStore.delete(id);
+
+  transaction.oncomplete = () => {
+    console.log(`cita ${id} eliminada..`);
+    // Refrescar las citas
+    ui.imprimirCitas();
+  }
+
+  transaction.onerror = () => {
+    console.log('hubo un error');
+  }
 }
 
 // Carga los datos y el modo de edicion
