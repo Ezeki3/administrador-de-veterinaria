@@ -120,6 +120,7 @@ class UI {
 
         // Añade un botón de editar...
         const btnEditar = document.createElement('button');
+        const cita = cursor.value;
         btnEditar.onclick = () => cargarEdicion(cita);
 
         btnEditar.classList.add('btn', 'btn-info');
@@ -211,6 +212,10 @@ function nuevaCita(e) {
 
     // Pasar el objeto de la cita
     administrarCitas.editarCita({ ...citaObj })
+
+    // Edita en IndexDB
+    const transaction = DB.transaction(['citas'], 'readwrite');
+    const objectStore = transaction.objectStore('citas');
 
     // Regresar el texto del boton a su estado original
     formulario.querySelector('button[type="submit"]').textContent = 'Crear cita';
