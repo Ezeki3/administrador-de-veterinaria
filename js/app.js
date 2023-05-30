@@ -217,11 +217,20 @@ function nuevaCita(e) {
     const transaction = DB.transaction(['citas'], 'readwrite');
     const objectStore = transaction.objectStore('citas');
 
-    // Regresar el texto del boton a su estado original
-    formulario.querySelector('button[type="submit"]').textContent = 'Crear cita';
+    objectStore.put(citaObj);
 
-    // Quitar modo edicion
-    editando = false;
+    transaction.oncomplete = () => {
+      ui.imprimirAlerta('Guardado correctamente')
+      // Regresar el texto del boton a su estado original
+      formulario.querySelector('button[type="submit"]').textContent = 'Crear cita';
+
+      // Quitar modo edicion
+      editando = false;
+    }
+
+    transaction.onerror = () => {
+      console.log('hubo un error');
+    }
 
   } else {
 
