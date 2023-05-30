@@ -73,6 +73,14 @@ class UI {
     // Leer el contenido de la base de datos 
     const objectStore = DB.transaction('citas').objectStore('citas');
 
+    const fnTextoHeading = this.textoHeading;
+
+    const total = objectStore.count();
+    total.onsuccess = function () {
+      fnTextoHeading(total.result)
+    }
+
+    // Crear el template
     objectStore.openCursor().onsuccess = function (e) {
 
       const cursor = e.target.result;
@@ -128,12 +136,15 @@ class UI {
         divCita.appendChild(btnEditar)
 
         contenedorCitas.appendChild(divCita);
+
+        // Ve al siguiente elemento
+        cursor.continue();
       }
     }
   }
 
-  textoHeading(citas) {
-    if (citas.length > 0) {
+  textoHeading(resultado) {
+    if (resultado > 0) {
       heading.textContent = 'Administra tus Citas '
     } else {
       heading.textContent = 'No hay Citas, comienza creando una'
