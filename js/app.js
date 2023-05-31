@@ -1,3 +1,5 @@
+// Se actualizo el proyecto, usando indexedDB
+
 let DB;
 
 // Campos del formulario
